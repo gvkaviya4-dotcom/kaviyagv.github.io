@@ -1,0 +1,1043 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kaviya GV | iOS Developer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            background: #101827;
+            color: #f5f7fb;
+            line-height: 1.6;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 72px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 7%;
+
+            background: rgba(16, 24, 39, 0.88);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #7dd3fc;
+        }
+
+        .logo span {
+            color: #a78bfa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #7dd3fc;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        section {
+            min-height: 100vh;
+            padding: 120px 8% 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #94a3b8;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 900px;
+            width: 100%;
+            margin: 30px auto;
+        }
+
+        .doc-image {
+            width: 100%;
+            height: 260px;
+            object-fit: contain;
+            border-radius: 14px;
+            margin-bottom: 16px;
+            background: #e5e7ea;
+        }
+
+@media (max-width: 700px) {
+    .doc-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+        /* ================= HOME ================= */
+
+        #home {
+            background:
+                radial-gradient(circle at 15% 30%,
+                rgba(56,189,248,0.12),
+                transparent 30%),
+                radial-gradient(circle at 85% 70%,
+                rgba(139,92,246,0.12),
+                transparent 30%);
+        }
+
+        .home-container {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-image {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%;
+
+            border: 5px solid rgba(125,211,252,0.5);
+
+            box-shadow:
+                0 0 40px rgba(56,189,248,0.18);
+
+            background: #1e293b;
+        }
+
+        .home-content h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .home-content h1 span {
+            color: #7dd3fc;
+        }
+
+        .developer-title {
+            font-size: 25px;
+            color: #a78bfa;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .home-content p {
+            color: #cbd5e1;
+            font-size: 17px;
+            max-width: 700px;
+            margin-bottom: 25px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .skill {
+            padding: 8px 16px;
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(125,211,252,0.2);
+
+            color: #bae6fd;
+            font-size: 14px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+
+            border-radius: 8px;
+
+            background: #2563eb;
+            color: white;
+
+            text-decoration: none;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            background: #3b82f6;
+        }
+
+        /* ================= CARDS ================= */
+
+        .card {
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            backdrop-filter: blur(12px);
+
+            transition: 0.35s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(125,211,252,0.35);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+        }
+
+        /* ================= APPS ================= */
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            max-width: 1100px;
+            width: 100%;
+            margin: auto;
+        }
+        .app-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            background: #1e293b;
+        }
+        .your-class-name{
+            width:100%;
+            height:auto;
+            object-fit:contain;
+            border-radius:14px;
+            background:var(--surface-2);
+        }
+
+        .card h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            margin-bottom: 18px;
+        }
+
+        .app-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(125,211,252,0.1);
+            color: #7dd3fc;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        /* ================= ACHIEVEMENTS ================= */
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .achievement-card {
+            text-align: center;
+        }
+
+        .achievement-image {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            background: #172235;
+        }
+        @media (max-width: 900px) {
+            .achievement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ================= DIGITAL MARKETING ================= */
+
+        .marketing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .view-count {
+            font-size: 28px;
+            font-weight: 700;
+            color: #7dd3fc;
+            margin: 10px 0;
+        }
+
+        /* ================= EDUCATION ================= */
+
+        .timeline {
+            max-width: 900px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 30px;
+            margin-bottom: 25px;
+
+            border-left: 3px solid #7dd3fc;
+
+            background: rgba(255,255,255,0.04);
+            border-radius: 0 15px 15px 0;
+        }
+
+        .timeline-item h3 {
+            color: #7dd3fc;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: #94a3b8;
+        }
+        .team-image {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+            margin: 30px auto;
+            display: block;
+            background: #e5e7ea;
+        }
+
+        /* ================= CONTACT ================= */
+
+        #contact {
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            padding: 25px;
+
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 14px;
+        }
+
+        .contact-item h3 {
+            color: #7dd3fc;
+            margin-bottom: 8px;
+        }
+
+        .contact-item a {
+            color: #cbd5e1;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .contact-item a:hover {
+            color: #7dd3fc;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #0c1422;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade {
+            animation: fadeUp 1s ease forwards;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .home-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 260px;
+                height: 260px;
+            }
+
+            .home-content h1 {
+                font-size: 42px;
+            }
+
+            .skills {
+                justify-content: center;
+            }
+
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .marketing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 4%;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 100px 5% 60px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .home-content h1 {
+                font-size: 36px;
+            }
+
+            .developer-title {
+                font-size: 20px;
+            }
+
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+    <div class="logo">Kaviya<span>.</span></div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#apps">Apps</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#marketing">Digital Work</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- ================= PAGE 1 : HOME ================= -->
+
+<section id="home">
+
+    <div class="home-container fade">
+
+        <div class="profile-container">
+
+            <!-- Replace profile.jpg with your photo -->
+            <img
+                src="/Users/kaviyagv/Desktop/Apple/Developer Cirtificate/profile.jpeg"
+                alt="Kaviya GV"
+                class="profile-image"
+            >
+
+        </div>
+
+        <div class="home-content">
+
+            <h1>Hello, I'm <span>Kaviya GV</span></h1>
+
+            <div class="developer-title">
+                iOS Developer
+            </div>
+
+            <p>
+                I'm an iOS Developer at
+                <strong>SkyneT Bee Artificial Intelligence Enterprise Pvt Ltd</strong>,
+                passionate about building modern and user-friendly applications.
+            </p>
+
+            <p>
+                I work with <strong>Swift</strong> and
+                <strong>SwiftUI</strong> to develop real-world applications,
+                focusing on clean interfaces, functionality and user experience.
+            </p>
+
+            <div class="skills">
+
+                <span class="skill">Swift</span>
+                <span class="skill">SwiftUI</span>
+                <span class="skill">iOS Development</span>
+                <span class="skill">UI/UX</span>
+                <span class="skill">App Development</span>
+                <span class="skill">Problem Solving</span>
+
+            </div>
+
+            <a href="#apps" class="button">
+                Explore My Work
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PAGE 2 : APPS ================= -->
+
+<section id="apps">
+
+    <div class="section-title">
+
+        <h2>My Apps</h2>
+
+        <p>
+            Applications I have designed and developed
+        </p>
+
+    </div>
+
+    <div class="apps-grid">
+
+        <!-- APP 1 -->
+
+        <div class="card">
+
+            <!-- Replace with Space Trek screenshot -->
+            <img
+                src="/Users/kaviyagv/Desktop/Apple/Developer Cirtificate/space-trek.jpg"
+                alt="Space Trek by SkyneT"
+                class="app-image"
+            >
+            
+
+            <span class="app-tag">APPLE APP STORE</span>
+
+            <h3>Space Trek by SkyneT</h3>
+
+            <p>
+                A space-themed board game inspired by the classic
+                Snake and Ladder concept.
+            </p>
+
+            <p>
+                Instead of snakes, the game uses
+                <strong>Black Holes</strong>, while rockets replace
+                traditional ladders, creating a unique space adventure.
+            </p>
+
+            <!-- Replace # with your App Store link -->
+            <a href="#" class="button" target="_blank">
+                View on App Store
+            </a>
+
+        </div>
+
+
+        <!-- APP 2 -->
+
+        <div class="card">
+
+            <!-- Replace with Study Space screenshot -->
+            <img
+                src="/Users/kaviyagv/Desktop/Apple/Developer Cirtificate/study-space.jpg"
+                alt="Study Space"
+                class="app-image"
+            >
+
+            <span class="app-tag">PRODUCTION APP</span>
+
+            <h3>Study Space</h3>
+
+            <p>
+                A production-level student application designed to
+                help students track and manage their attendance.
+            </p>
+
+            <p>
+                The application provides a simple and practical way
+                for students to monitor their attendance and stay
+                aware of their academic progress.
+            </p>
+
+            <!-- Replace # with your App Store link -->
+            <a href="#" class="button" target="_blank">
+                View on App Store
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PAGE 3 : ACHIEVEMENTS ================= -->
+
+<section id="achievements">
+
+    <div class="section-title">
+
+        <h2>Achievements</h2>
+
+        <p>
+            Milestones and recognitions from my development journey
+        </p>
+
+    </div>
+
+    <div class="achievement-grid">
+
+        <div class="card achievement-card">
+
+            <img
+                src="/Users/kaviyagv/Desktop/Apple/Developer Cirtificate/medal-1.jpeg"
+                alt="Gold Most Promising Developer Medal"
+                class="achievement-image"
+            >
+
+            <h3>Gold Award</h3>
+
+            <p>
+                Most Promising Developer
+            </p>
+
+        </div>
+
+
+        <div class="card achievement-card">
+
+            <img
+                src="images/gold-medal-2.jpg"
+                alt="Gold Most Promising Developer Medal"
+                class="achievement-image"
+            >
+
+            <h3>Gold Award</h3>
+
+            <p>
+                Most Promising Developer
+            </p>
+
+        </div>
+
+
+        <div class="card achievement-card">
+
+            <img
+                src="/Users/kaviyagv/Desktop/Apple/Developer Cirtificate/medal-3.JPG"
+                alt="Gold Most Promising Developer Medal"
+                class="achievement-image"
+            >
+
+            <h3>Gold Award</h3>
+
+            <p>
+                Most Promising Developer
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PAGE 4 : DIGITAL MARKETING ================= -->
+
+<section id="marketing">
+
+    <div class="section-title">
+
+        <h2>Digital Marketing Work</h2>
+
+        <p>
+            Video editing and digital content creation
+        </p>
+
+    </div>
+
+    <div class="marketing-grid">
+
+        <!-- VIDEO 1 -->
+
+        <div class="card">
+
+            <img
+                src="/Users/kaviyagv/Desktop/Apple/Developer Cirtificate/video-5m-views.jpg"
+                alt="Video performance"
+                class="app-image"
+            >
+
+            <h3>Video Editing</h3>
+
+            <div class="view-count">
+                5M+ Views
+            </div>
+
+            <p>
+                Edited and produced digital content published
+                through our college's social media platform.
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 2 -->
+
+        <div class="card">
+
+            <img
+                src="/Users/kaviyagv/Desktop/Apple/Developer Cirtificate/video-703k-views.jpg"
+                alt="Video performance"
+                class="app-image"
+            >
+
+            <h3>Video Editing</h3>
+
+            <div class="view-count">
+                703K Views
+            </div>
+
+            <p>
+                Edited engaging short-form video content
+                that achieved significant audience reach.
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 3 -->
+
+        <div class="card">
+
+            <img
+                src="images/video-3.jpg"
+                alt="Video editing work"
+                class="app-image"
+            >
+
+            <h3>Content Creation</h3>
+
+            <div class="view-count">
+                Video Editing
+            </div>
+
+            <p>
+                Created and edited digital content for
+                college social media and promotional activities.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PAGE 5 : EDUCATION ================= -->
+
+<section id="education">
+
+    <div class="section-title">
+
+        <h2>Education & Experience</h2>
+
+        <p>
+            My academic background and professional journey
+        </p>
+
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <h3>B.Sc. Information Technology</h3>
+
+            <p>
+                <strong>R.D. National College of Arts & Science</strong>
+            </p>
+
+            <p>
+                Currently pursuing 3rd Year
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <h3>Higher Secondary Education</h3>
+
+            <p>
+                Highest completed qualification:
+                Higher Secondary (+2)
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <h3>iOS Developer & Team Lead</h3>
+
+            <p>
+                <strong>
+                    SkyneT Bee Artificial Intelligence Enterprise Pvt Ltd
+                </strong>
+            </p>
+
+            <p>
+                2+ Year Work Experience in Swift & SwiftUI, iOS Application developement.
+            </p>
+
+            <p>
+                Working as a part-time intern and iOS Developer,
+                contributing to real-world application development
+                using Swift and SwiftUI.
+            </p>
+
+            <p>
+                Also working as a Team Lead, collaborating with
+                team members and contributing to project development.
+            </p>
+
+        </div>
+
+        <!-- Replace with your team/company image -->
+
+      
+       <div class="doc-grid">
+
+    <div class="card">
+        <img
+            src="/Users/kaviyagv/Desktop/Apple/Developer Cirtificate/Study_Space_Developer_Documentation.pdf"
+            alt="SkyneT Bee Team"
+            class="doc-image"
+        >
+        <h3>SkyneT Bee Team</h3>
+    </div>
+
+    <div class="card">
+        <img
+            src="/Users/kaviyagv/Desktop/Apple/Developer Cirtificate/dev-certificate.jpeg"
+            alt="Developer Certification"
+            class="doc-image"
+        >
+        <h3>Developer Certification</h3>
+        <p>Certified Developer</p>
+    </div>
+
+</div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PAGE 6 : CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="section-title">
+
+        <h2>Let's Connect</h2>
+
+        <p>
+            Feel free to contact me for opportunities,
+            collaborations or projects.
+        </p>
+
+    </div>
+
+    <div class="contact-container">
+
+        <div class="contact-box">
+
+            <div class="contact-item">
+
+                <h3>Phone</h3>
+
+                <a href="tel:+919003693259">
+                    +91 90036 93259
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <h3>Email</h3>
+
+                <a href="mailto:skynetkaviya@gmail.com">
+                    skynetkaviya@gmail.com
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <h3>LinkedIn</h3>
+
+                <a
+                    href="https://linkedin.com/in/kaviya-gv-b75789320"
+                    target="_blank"
+                >
+                    linkedin.com/in/kaviya-gv-b75789320
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <h3>Role</h3>
+
+                <p>
+                    iOS Developer
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 Kaviya GV · iOS Developer
+
+</footer>
+
+
+</body>
+</html>
+
